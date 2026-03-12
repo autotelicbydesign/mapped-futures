@@ -11,7 +11,7 @@ export function SiteFooter() {
       <div className="site-frame footer-grid">
         <div className="footer-brand-block">
           <Link href="/" className="brand-lockup footer-brand">
-            <span className="sr-only">explainme.design</span>
+            <span className="sr-only">Mapped Futures</span>
             <img src="/mica-logo.svg" alt="" className="brand-logo" aria-hidden="true" />
           </Link>
           <p className="footer-copy">

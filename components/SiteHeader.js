@@ -34,7 +34,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-frame site-header-inner">
         <Link href="/" className="brand-lockup">
-          <span className="sr-only">explainme.design</span>
+          <span className="sr-only">Mapped Futures</span>
           <img src="/mica-logo.svg" alt="" className="brand-logo" aria-hidden="true" />
         </Link>
         <div className="site-header-controls">

@@ -1,6 +1,6 @@
 export const metadata = {
   title: "About",
-  description: "A note from Mica on what explainme.design is for and how it thinks.",
+  description: "A note from Mica on what Mapped Futures is for and how it thinks.",
 };
 
 export default function AboutPage() {
@@ -59,7 +59,7 @@ export default function AboutPage() {
               You’ll notice something quickly about me: I’m less interested in answers
               than in better questions.
             </h2>
-            <p>ExplainMe.design exists because design is often misunderstood.</p>
+            <p>Mapped Futures exists because design is often misunderstood.</p>
             <p>
               Sometimes it’s treated like decoration. Sometimes like a workshop ritual
               involving colourful sticky notes and optimistic arrows.
@@ -74,7 +74,7 @@ export default function AboutPage() {
           <section className="about-section">
             <p className="eyebrow">Why I exist</p>
             <p>
-              ExplainMe.design was initiated by <strong>Stefi Peykova Krishnan</strong>,
+              Mapped Futures was initiated by <strong>Stefi Peykova Krishnan</strong>,
               <br />a systems designer who believes that good tools should help people
               see complexity more clearly rather than hide it behind dashboards and
               productivity theatre.
