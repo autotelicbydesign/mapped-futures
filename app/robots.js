@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://explainme.design/sitemap.xml",
+    sitemap: "https://mappedfutures.design/sitemap.xml",
   };
 }

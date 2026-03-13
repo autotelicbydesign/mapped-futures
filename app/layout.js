@@ -6,7 +6,7 @@ import { siteMeta } from "../lib/site-data";
 import "./globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://explainme.design"),
+  metadataBase: new URL("https://mappedfutures.design"),
   title: {
     default: `${siteMeta.title} — ${siteMeta.tagline}`,
     template: `%s · ${siteMeta.title}`,
