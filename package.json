@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mica:scan": "node scripts/mica-scan.mjs",
+    "mica:publish": "node scripts/mica-publish.mjs"
   },
   "dependencies": {
     "@paper-design/shaders-react": "^0.0.71",

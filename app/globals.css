@@ -998,14 +998,17 @@ html[data-theme="dark"] .hero-trail span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
-  padding: 0 14px;
+  min-height: 0;
+  max-width: 100%;
+  padding: 8px 14px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-pill);
   color: var(--text-primary);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
+  line-height: 1.12;
+  white-space: nowrap;
   text-transform: uppercase;
   background: transparent;
 }

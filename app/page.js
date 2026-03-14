@@ -15,7 +15,7 @@ import {
 } from "../lib/site-data";
 
 const toneClassByDomain = {
-  "Intelligent & Autonomous Systems": "tone-autonomous",
+  "AI & Autonomous Systems": "tone-autonomous",
   "Systems & Institutions": "tone-systems",
 };
 

@@ -1,0 +1,46 @@
+name: Mica Biweekly Publish
+
+on:
+  schedule:
+    - cron: "15 22 * * 1"
+    - cron: "15 23 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Mica publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE_ID: ${{ vars.NOTION_PAGE_ID }}
+          MICA_SUMMARY_PATH: ${{ runner.temp }}/mica-publish-summary.md
+        run: npm run mica:publish
+
+      - name: Publish job summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/mica-publish-summary.md" ]; then
+            cat "$RUNNER_TEMP/mica-publish-summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
