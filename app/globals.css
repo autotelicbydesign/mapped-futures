@@ -696,6 +696,18 @@ html[data-theme="dark"] .button.ghost:focus-visible {
   pointer-events: none;
 }
 
+.mica-image.is-playing::after {
+  background:
+    radial-gradient(circle at 22% 74%, rgba(11, 193, 241, 0.3), transparent 22%),
+    radial-gradient(circle at 80% 18%, rgba(254, 87, 5, 0.34), transparent 18%);
+}
+
+.mica-song-surface {
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+
 .mica-heatmap {
   width: 100%;
   height: 100%;
@@ -703,6 +715,241 @@ html[data-theme="dark"] .button.ghost:focus-visible {
 
 .hero-heatmap {
   opacity: 0.96;
+}
+
+.mica-song-player {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%),
+    rgba(8, 10, 28, 0.42);
+  box-shadow: 0 16px 36px rgba(5, 8, 20, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.mica-song-player-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.mica-song-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.mica-song-kicker {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mica-song-title {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
+}
+
+.mica-song-caption {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.72rem;
+  line-height: 1.22;
+}
+
+.mica-song-visuals {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.mica-song-wave {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  height: 44px;
+}
+
+.mica-song-wave span {
+  flex: 1 1 0;
+  height: 22%;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  transform-origin: center bottom;
+  transition: background 180ms ease;
+}
+
+.mica-song-wave.is-playing span {
+  background: linear-gradient(180deg, rgba(11, 193, 241, 0.92) 0%, rgba(254, 87, 5, 0.92) 100%);
+  animation: micaWave 1100ms ease-in-out infinite;
+  animation-delay: var(--mica-wave-delay);
+}
+
+.mica-song-wave.is-playing span:nth-child(3n) {
+  animation-duration: 980ms;
+}
+
+.mica-song-wave.is-playing span:nth-child(4n) {
+  animation-duration: 1260ms;
+}
+
+.mica-song-progress {
+  position: relative;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.mica-song-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(11, 193, 241, 0.96) 0%, rgba(254, 87, 5, 0.96) 100%);
+}
+
+.mica-song-controls {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mica-song-icon-button,
+.mica-song-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(9, 12, 32, 0.64);
+  color: #ffffff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.mica-song-icon-button {
+  width: 42px;
+  cursor: pointer;
+}
+
+.mica-song-icon-button.primary {
+  background: rgba(255, 255, 255, 0.96);
+  color: #181310;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.mica-song-icon-button:hover,
+.mica-song-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(17, 22, 54, 0.82);
+}
+
+.mica-song-icon-button.primary:hover {
+  background: #ffffff;
+}
+
+.mica-song-icon-button.ghost {
+  background: rgba(9, 12, 32, 0.42);
+}
+
+.mica-song-icon-button:disabled {
+  opacity: 0.48;
+  cursor: default;
+  transform: none;
+}
+
+.mica-song-control-icon {
+  display: inline-block;
+  position: relative;
+}
+
+.mica-song-control-icon.play {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid currentColor;
+  margin-left: 2px;
+}
+
+.mica-song-control-icon.pause {
+  width: 12px;
+  height: 14px;
+}
+
+.mica-song-control-icon.pause::before,
+.mica-song-control-icon.pause::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 14px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.mica-song-control-icon.pause::before {
+  left: 0;
+}
+
+.mica-song-control-icon.pause::after {
+  right: 0;
+}
+
+.mica-song-control-icon.stop {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: currentColor;
+}
+
+.mica-song-link {
+  min-height: 42px;
+  padding: 0 14px;
+  text-decoration: none;
+}
+
+@keyframes micaWave {
+  0%,
+  100% {
+    transform: scaleY(0.36);
+    height: 24%;
+  }
+
+  35% {
+    transform: scaleY(0.82);
+    height: var(--mica-wave-height);
+  }
+
+  70% {
+    transform: scaleY(0.58);
+    height: calc(var(--mica-wave-height) * 0.72);
+  }
 }
 
 .mica-open-note {
@@ -1020,13 +1267,23 @@ html[data-theme="dark"] .hero-trail span {
 }
 
 .pill.subtle {
-  border-color: transparent;
-  background:
-    radial-gradient(circle at 85% 50%, rgba(254, 87, 5, 0.95), rgba(254, 87, 5, 0.24) 12%, transparent 26%),
-    radial-gradient(circle at 26% 40%, rgba(48, 102, 228, 0.95), rgba(48, 102, 228, 0.24) 14%, transparent 30%),
-    linear-gradient(90deg, rgba(48, 102, 228, 0.9) 0%, rgba(11, 193, 241, 0.9) 52%, rgba(254, 87, 5, 0.92) 100%);
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  background: linear-gradient(90deg, #356df2 0%, #14c0ef 52%, #ff6c22 100%);
   color: #ffffff;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 8px 18px rgba(6, 10, 28, 0.14);
+}
+
+.pill.subtle::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 34%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
 }
 
 .pill.tone-autonomous {
@@ -1649,6 +1906,10 @@ html[data-theme="dark"] .schema-step {
 
   .framework-featured {
     grid-column: auto;
+  }
+
+  .mica-song-player-top {
+    align-items: flex-start;
   }
 
   .atlas-feature-grid,

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { MicaHeatmap } from "../components/MicaHeatmap";
+import { MicaSongCard } from "../components/MicaSongCard";
 import { SignalRail } from "../components/SignalRail";
 import {
   disciplines,
@@ -83,12 +83,11 @@ export default function HomePage() {
 
         <aside className="hero-side">
           <p className="eyebrow">Hi, I&apos;m Mica. My favourite song is</p>
-          <div className="mica-image-card">
-            <div className="mica-image" aria-hidden="true">
-              <div className="mica-image-pill">♫ Once in a Lifetime, Talking Heads</div>
-              <MicaHeatmap className="hero-heatmap" colorBack="#1538a7" />
-            </div>
-          </div>
+          <MicaSongCard
+            songLabel={siteMeta.favoriteSongLabel}
+            songUrl={siteMeta.favoriteSongUrl}
+            previewUrl={siteMeta.favoriteSongPreviewUrl}
+          />
           <div className="mica-open-note">
             <h2>I map the future of design without pretending it is tidy.</h2>
             <p>
